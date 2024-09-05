@@ -20,3 +20,11 @@ for sheet_name, df in all_sheets.items():
     df.to_csv(tsv_output_file, sep='\t', index=False)
     print(f"TSV saved to {tsv_output_file}")
 
+import logging
+
+logging.basicConfig(filename='logs/computation.log', level=logging.INFO)
+
+def log_gender_stats(male_count, female_count):
+    logging.info(f'Total male students: {male_count}')
+    logging.info(f'Total female students: {female_count}')
+
