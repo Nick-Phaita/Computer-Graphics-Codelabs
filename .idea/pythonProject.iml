@@ -3,9 +3,13 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+<<<<<<< HEAD
       <excludeFolder url="file://$MODULE_DIR$/env" />
+=======
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+>>>>>>> 2884b42464b5e55bb527a92369059f47a388a7dc
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.12 (Computer-Graphics-Codelabs)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
