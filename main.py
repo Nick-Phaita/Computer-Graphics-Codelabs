@@ -1,17 +1,22 @@
-# This is a sample Python script.
+import os.path
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import pandas as pd
+from generate_email_addresses import generate_email_addresses
 
+file_path = 'input_files/Test Files.xlsx'
+all_sheets = pd.read_excel(file_path, sheet_name=None)
+for sheet_name, df in all_sheets.items():
+    print(f"Processing Sheet: {sheet_name}")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    emails = generate_email_addresses(df)
+    df['Email'] = emails
 
+    csv_output_file = os.path.join('output_files', f'{sheet_name}_with_emails.csv')
+    df.to_csv(csv_output_file, index=False)
+    print(f"CSV saved to {csv_output_file}")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # Save to TSV file (specifying tab as the delimiter)
+    tsv_output_file = os.path.join('output_files', f'{sheet_name}_with_emails.tsv')
+    df.to_csv(tsv_output_file, sep='\t', index=False)
+    print(f"TSV saved to {tsv_output_file}")
 
